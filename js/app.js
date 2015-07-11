@@ -5,43 +5,39 @@ Object.prototype.render = function() {
 
 //Player position when reset
 Object.prototype.reset = function() {
-  player.x = 300;
-  player.y = 550;
+    player.x = 300;
+    player.y = 550;
 }
 
 //The enemy
 var Enemy = function(x,y) {
-
-
     this.sprite = 'images/enemy-bug.png';
 
 //Position and speed of enemy
     this.x = x;
     this.y = y;
     this.speed = Math.floor((Math.random() * 300) + 50);
-}
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     //reset enemy on offscreen
-    if(this.x <= 725){
+    if (this.x <= 725){
         this.x += this.speed * dt * .8;
-    }else{
+    } else {
         this.x = -102;
     }
 
     //Reset when player and enemy get too close
-    if(player.x >= this.x - 60 && player.x <= this.x + 60){
-        if(player.y >= this.y - 60 && player.y <= this.y + 60){
-
-            
+    if (player.x >= this.x - 60 && player.x <= this.x + 60){
+        if (player.y >= this.y - 60 && player.y <= this.y + 60){            
             //reset and subtract 1 point from score on collision
             function modify_qty() {
                 var qty = document.getElementById('qty').value;
                 var new_qty = parseInt(qty,10) - 1;
 
-                if(new_qty < 0) {
+                if (new_qty < 0) {
                     new_qty = 0;
                 }
 
@@ -59,15 +55,20 @@ var Player = function(){
     this.sprite = 'images/char-boy.png';
     this.x = 300;
     this.y = 550;
-}
+};
 
 //Update player position
 Player.prototype.update = function(){
     //Move character from one block to the next on keyup
-if (this.move === "right" && this.x < 600){ this.x += 100;}
-  else if (this.move === "left" && this.x > 0){ this.x -= 100;}
-  if (this.move === "up" && this.y > 0){ this.y -= 83;}
-  else if (this.move === "down" && this.y < 550){ this.y += 83;}
+    if (this.move === "right" && this.x < 600){
+        this.x += 100;
+    } else if (this.move === "left" && this.x > 0){
+        this.x -= 100;
+    } if (this.move === "up" && this.y > 0){
+        this.y -= 83;
+    } else if (this.move === "down" && this.y < 550){
+        this.y += 83;
+    }
     this.move = null;
     
     //Reset and add 1 to score on finish
@@ -192,13 +193,13 @@ var allEnemies = [];
     allEnemies.push(new Enemy(-102,310));
     allEnemies.push(new Enemy(-102,390));
     allEnemies.push(new Enemy(-102,390));
-}());
+}())
 
 var player = new Player();
 
 
 
-// listens for key presses and sends the keys to 
+// listens for key presses and sends the keys to
 // Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
@@ -209,4 +210,4 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-});
+})
