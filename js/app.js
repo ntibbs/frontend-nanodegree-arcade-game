@@ -1,13 +1,13 @@
 //Draw player and enemy
 Object.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 //Player position when reset
 Object.prototype.reset = function() {
     player.x = 300;
     player.y = 550;
-}
+};
 
 //The enemy
 var Enemy = function(x,y) {
@@ -48,7 +48,7 @@ Enemy.prototype.update = function(dt) {
             this.reset();
         }
     }
-}
+};
 
 //Player image and position on start
 var Player = function(){
@@ -72,7 +72,7 @@ Player.prototype.update = function(){
     this.move = null;
     
     //Reset and add 1 to score on finish
-    if(this.y < 25){
+    if (this.y < 25){
         function modify_qty() {
             var qty = document.getElementById('qty').value;
             var new_qty = parseInt(qty,10) + 1;
@@ -157,12 +157,12 @@ Player.prototype.update = function(){
         modify_qty();
         this.reset();
     }
-}
+};
 
 //Input handler for player
 Player.prototype.handleInput = function(e){
     this.move = e;
-}
+};
 
 //Change sprite on click
 function char_select1() {
@@ -210,4 +210,4 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-})
+});

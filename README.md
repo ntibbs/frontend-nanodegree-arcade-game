@@ -1,5 +1,7 @@
 frontend-nanodegree-arcade-game
-===========================
+===============================
+
+Go to http://ntibbs.github.io/frontend-nanodegree-arcade-game/
 
 This is a frogger like game. The objective is to get from the bottom section of grass to the other side of the roads into the water.
 
