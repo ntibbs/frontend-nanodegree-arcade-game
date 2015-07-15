@@ -193,7 +193,7 @@ var allEnemies = [];
     allEnemies.push(new Enemy(-102,310));
     allEnemies.push(new Enemy(-102,390));
     allEnemies.push(new Enemy(-102,390));
-}())
+}());
 
 var player = new Player();
 
